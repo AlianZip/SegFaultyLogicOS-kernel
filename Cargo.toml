@@ -1,0 +1,21 @@
+[package]
+name = "kernel"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+x86_64 = "0.15.2"
+
+[lib]
+crate-type = ["cdylib"]
+
+[build]
+target = "x86_64-unknown-none"
+
+[profile.dev]
+panic = "abort"
+
+[profile.release]
+panic = "abort"
+overflow-checks = false
+relocation-model = "pic"
